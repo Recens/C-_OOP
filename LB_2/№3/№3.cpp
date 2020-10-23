@@ -1,55 +1,93 @@
 ﻿#include <iostream>
 #include <string>
+#define M_PI 3.14159265358979323846
 
-class Figure
+
+class Point
 {
 protected:
-    double type, xpos, ypos;
+    
 public:
-    Figure() { int type = 0; xpos = 0; ypos = 0; }
+    double xpos, ypos;
+    Point()
+    {
+        xpos = 0; ypos = 0;
+    }
+    Point(double a, double b)
+    {
+        xpos = a;
+        ypos = b;
+        std::cout << "add point" << std::endl;
+    }
+};
+
+class Segment : public Point
+{
+public:
+    double lenght;
+	Segment()
+    {
+        lenght = 0;
+    }
+   static int len (const Point& oth, const Point& unoth)
+    {
+       return  sqrt(pow(unoth.xpos - oth.xpos, 2) + pow(unoth.ypos - oth.ypos, 2));
+       
+    }
+	
+
+};
+
+
+class Figure : public Segment
+{
+protected:
+    double area, perimeter;
+public:
+    
     static void creator()
     {
         std::cout << "Nothing to create\n";
     }
 };
 
-class Point : public Figure
-{
-protected:
-public:
-    Point()
-    {
-        type = 1; xpos = 0; ypos = 0;
-    }
-    void set_values(int a, int b)
-    {
-        xpos = a;
-        ypos = b;
-    }
-};
+
 
 class Circle : public Figure
 {
-protected:
-    float radius;
 public:
-    Circle()
-    {
-        type = 2; xpos = 0; ypos = 0;
-    }
-
+    float radius;
+	void set_circle(float radius)
+	{
+        this->radius=radius;
+	}
+    float get_circle()
+	{
+        return radius;
+	}
+    Circle(float radius, int xpos, int ypos)
+	{
+        area = M_PI * radius * radius;
+        std::cout << "circle area = "<< area<<std::endl;
+	}
 };
 
 
 class Polygon : public Figure
 {
-protected:
-    int count_of_side;
 public:
-    Polygon()
-    {
-        type = 3; xpos = 0; ypos = 0;
-    }
+	Polygon()
+	{
+		
+	}
+	Polygon(const Point& first, const Point& second, const Point& third,
+        const Point& forth, const Point& fifth)
+	{
+        
+        perimeter = Segment::len(first, second) + Segment::len(second, third) + Segment::len(third, forth) + Segment::len(forth, fifth) + Segment::len(fifth, first);
+        std::cout << "Polygon perimeter = "<<perimeter << std::endl;
+	}
+   
 
 };
 
@@ -57,10 +95,7 @@ class Rectangle : public Polygon
 {
 protected:
 public:
-    Rectangle()
-    {
-        type = 4; xpos = 0; ypos = 0;
-    }
+    
 
 
 };
@@ -69,9 +104,31 @@ class Triangle : public Polygon
 {
 protected:
 public:
-    Triangle()
+    Triangle(const Point& first, const Point& second, const Point& third)
     {
-        type = 5; xpos = 0; ypos = 0;
+        if (Segment::len(first, second) + Segment::len(first, third) > Segment::len(third, second))
+        {
+            if (Segment::len(second, first) + Segment::len(second, third) > Segment::len(third, first))
+            {
+                if (Segment::len(third, first) + Segment::len(third, second) > Segment::len(first, second))
+                {
+                    std::cout << "triangle correct\n";
+
+                }
+                else
+                {
+                    std::cout << "triangle not correct\n";
+                }
+            }
+            else
+            {
+                std::cout << "triangle not correct\n";
+            }
+        }
+        else
+        {
+            std::cout << "triangle not correct\n";
+        }
     }
 
 };
@@ -80,6 +137,21 @@ public:
 
 int main()
 {
-    Point pobj;
-    std::cout << "Hello World!\n";
+    Point pobj(4,5);
+    Point p_1(3,4);
+    Point p_2(4, 5);
+    Point t_1(5, 2);
+    Point t_2(8, 3);
+	Point t_3(10, 11);
+    std::cout << "segment length = " <<Segment::len(p_1, p_2)<<std::endl;
+    Circle c_1(4, 3, 7);
+    Triangle t(t_1, t_2, t_3);
+    Point pl_1(3,1);
+    Point pl_2(2,3);
+    Point pl_3(5,6);
+    Point pl_4(8,3);
+    Point pl_5(7,1);
+    Polygon pl(pl_1, pl_2, pl_3, pl_4, pl_5);
+	
+
 }
