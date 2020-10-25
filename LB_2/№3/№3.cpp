@@ -156,14 +156,14 @@ public:
             std::cout << "triangle not correct\n";
         }
     }
-    void parallel(Point& firstApex, Point& secondApex, Point& thirdApex, const Point& Vector) {
-        firstApex.xpos += Vector.xpos;
-        secondApex.xpos += Vector.xpos;
-        thirdApex.xpos += Vector.xpos;
+    void parallel(Point& first, Point& second, Point& third, const Point& Vector) {
+        first.xpos += Vector.xpos;
+        second.xpos += Vector.xpos;
+        third.xpos += Vector.xpos;
 
-        firstApex.ypos += Vector.ypos;
-        secondApex.ypos += Vector.ypos;
-        thirdApex.ypos += Vector.ypos;
+        first.ypos += Vector.ypos;
+        second.ypos += Vector.ypos;
+        third.ypos += Vector.ypos;
     }
 
 };
