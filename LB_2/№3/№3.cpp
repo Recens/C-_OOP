@@ -107,15 +107,22 @@ public:
 		{
             sym = Segment::len(first, symm) * 2;
             first.xpos = first.xpos + sym;
-            second.xpos = second.xpos+sym;
-            third.xpos = third.xpos + sym;
-            forth.xpos = forth.xpos + sym;
-
             first.ypos = first.ypos + sym;
-            second.ypos = second.ypos * sym;
-            third.ypos = third.ypos * sym;
-            forth.ypos = forth.ypos * sym;
-            std::cout << "symm = "<<first.xpos << first.ypos << std::endl;
+            sym = Segment::len(second, symm) * 2;
+            second.xpos = second.xpos + sym;
+            second.ypos = second.ypos + sym;
+            sym = Segment::len(third, symm) * 2;
+            third.xpos = third.xpos + sym;
+            third.ypos = third.ypos + sym;
+            sym = Segment::len(forth, symm) * 2;
+            forth.xpos = forth.xpos + sym;
+            forth.ypos = forth.ypos + sym;
+			
+            std::cout << "symm = " << first.xpos << first.ypos << std::endl;
+            std::cout << "symm = " << second.xpos << second.ypos << std::endl;
+            std::cout << "symm = " << third.xpos << third.ypos << std::endl;
+            std::cout << "symm = " << forth.xpos << forth.ypos << std::endl;
+			
 		}
 };
 
