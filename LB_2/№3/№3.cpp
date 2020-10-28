@@ -8,7 +8,7 @@ class Point
 protected:
     
 public:
-    double xpos, ypos;
+    double xpos, ypos, sym=0;
     Point()
     {
         xpos = 0; ypos = 0;
@@ -44,10 +44,23 @@ class Figure : public Segment
 protected:
     double area, perimeter;
 public:
-    
+    Figure()
+    {
+        area = 0;
+        perimeter = 0;
+    };
+	double get_area()
+	{
+        return area;
+	}
+	double get_perimeter()
+	{
+        return perimeter;
+	}
+	
     static void creator()
     {
-        std::cout << "Nothing to create\n";
+        std::cout << "Figure \n";
     }
 };
 
@@ -57,9 +70,9 @@ class Circle : public Figure
 {
 public:
     float radius;
-	void set_circle(float radius)
+	void set_circle(float radius_)
 	{
-        this->radius=radius;
+        radius=radius_;
 	}
     float get_circle()
 	{
@@ -80,8 +93,8 @@ public:
 	{
 		
 	}
-	Polygon(const Point& first, const Point& second, const Point& third,
-        const Point& forth, const Point& fifth)
+	Polygon( Point& first, Point& second, Point& third,
+         Point& forth, Point& fifth)
 	{
         
         perimeter = Segment::len(first, second) + Segment::len(second, third) + Segment::len(third, forth) + Segment::len(forth, fifth) + Segment::len(fifth, first);
@@ -96,14 +109,13 @@ class Rectangle : public Polygon
 protected:
 public:
 	public:
-        double sym = 0;
-		Rectangle(const Point& first, const Point& second, const Point& third, const Point& forth)
+		Rectangle(Point& first, Point& second, Point& third, Point& forth)
         {
 		    std::cout << "Rectangle created\n";
 		    area = Segment::len(first, second) * Segment::len(second, third);
             std::cout << "Rectangle area = " << area << std::endl;
 		}
-        void symmetry(Point& first, Point& second, Point& third, Point forth, const Point& symm)
+        void symmetry(Point& first, Point& second, Point& third, Point forth, Point& symm)
 		{
             sym = Segment::len(first, symm) * 2;
             first.xpos = first.xpos + sym;
@@ -130,7 +142,7 @@ class Triangle : public Polygon
 {
 protected:
 public:
-    Triangle(const Point& first, const Point& second, const Point& third)
+    Triangle( Point& first,  Point& second,  Point& third)
     {
         if (Segment::len(first, second) + Segment::len(first, third) > Segment::len(third, second))
         {
@@ -156,7 +168,7 @@ public:
             std::cout << "triangle not correct\n";
         }
     }
-    void parallel(Point& first, Point& second, Point& third, const Point& Vector) {
+    void parallel(Point& first, Point& second, Point& third, Point& Vector) {
         first.xpos += Vector.xpos;
         second.xpos += Vector.xpos;
         third.xpos += Vector.xpos;

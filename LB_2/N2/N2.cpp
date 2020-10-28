@@ -57,6 +57,7 @@ public:
     ~place()
     {
         std::cout << "destructor" << std::endl;
+        count_--;
     }
     static int get_count_number()
     {
@@ -67,7 +68,7 @@ public:
         
         count_;
         count_ = -5;
-        std::cout << "Suka:" << count_<< std::endl;
+        std::cout << "kk:" << count_<< std::endl;
         
         
         
