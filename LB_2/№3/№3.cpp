@@ -13,10 +13,10 @@ public:
     {
         xpos = 0; ypos = 0;
     }
-    Point(double a, double b)
+    Point(double x, double y)
     {
-        xpos = a;
-        ypos = b;
+        xpos = x;
+        ypos = y;
         std::cout << "add point" << std::endl;
     }
 };
