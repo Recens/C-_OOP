@@ -1,20 +1,64 @@
-﻿// №2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <string>
 
-#include <iostream>
+
+class personnel
+{
+public:
+	std::string name;
+	std::string profession;
+	float experience;
+	virtual void data(std::string Name, std::string prof, float exp) = 0;
+};
+
+class working : public personnel
+{
+public:
+	void data(std::string Name, std::string prof, float exp) override
+	{
+		name = Name;
+		profession = prof;
+		experience = exp;
+		std::cout << "Name: " << name << std::endl << "Profession: " << profession << std::endl << "Experience: " << experience << " years" << std::endl;
+		std::cout<<std::endl;
+	};
+
+};
+
+class engineer : public personnel
+{
+public:
+	void data(std::string Name, std::string prof, float exp) override
+	{
+		name = Name;
+		profession = prof;
+		experience = exp;
+		std::cout << "Name: " << name << std::endl << "Profession: " << profession << std::endl << "Experience: " << experience << " years" << std::endl;
+		std::cout<<std::endl;
+	}
+};
+
+class administration : public personnel
+{
+public:
+	void data(std::string Name, std::string prof, float exp) override
+	{
+		name = Name;
+		profession = prof;
+		experience = exp;
+		std::cout << "Name: " << name << std::endl << "Profession: " << profession << std::endl << "Experience: " << experience << " years" << std::endl;
+		std::cout << std::endl;
+	}
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	working work;
+	work.data("Bob", "Working", 2.5);
+	engineer eng;
+	eng.data("Bill", "Engineer", 5);
+	administration admin;
+	admin.data("Johny","Administration",3);
+    
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
