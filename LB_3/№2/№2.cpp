@@ -61,4 +61,3 @@ int main()
 	admin.data("Johny","Administration",3);
     
 }
-
