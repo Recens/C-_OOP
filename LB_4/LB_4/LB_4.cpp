@@ -41,9 +41,9 @@ public:
 
     void setToNormal(float x1, float y1, float z1, float x2, float y2, float z2)
 	{
-        this->xpos = x2 + x1;
-        this->ypos = y2 + y1;
-        this->zpos = z2 + z1;
+        this->xpos = x2 - x1;
+        this->ypos = y2 - y1;
+        this->zpos = z2 - z1;
     }
 };
 

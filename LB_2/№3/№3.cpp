@@ -57,7 +57,6 @@ public:
 	{
         return perimeter;
 	}
-	
     static void creator()
     {
         std::cout << "Figure \n";
