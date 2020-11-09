@@ -76,20 +76,12 @@ class Operations : public Vector
                 (a.getZ() - b.getZ()));
         }
 
-        static float scalarProduct(Vector a, Vector b)
+        static float innerProduct(Vector a, Vector b)
 		{
             return (a.getX() * b.getX()+ a.getY() * b.getY() + a.getZ() * b.getZ());
         }
 
-        static float cosinus(Vector a, Vector b)
-		{
-            return ((scalarProduct(a, b))/(lenghtOfVector(a) * lenghtOfVector(b)));
-        }
 
-       static float innerProduct(Vector& a, Vector& b)
-       {
-           return lenghtOfVector(a) * lenghtOfVector(b) * cosinus(a, b);
-       }
 
         static Vector vectorProduct(Vector& a, Vector& b)
 		{
@@ -114,11 +106,9 @@ int main() {
     substr = Operations::SubstractionOfVectors(AB, BC);
     std::cout << "Addition: " << "x:" << addit.getX() << " y:" << addit.getY() << " z:" << addit.getZ() << "\n";
     std::cout << "Subtraction: " << "x:" << substr.getX() << " y:" << substr.getY() << " z:" << substr.getZ() << "\n";
-    std::cout << "Scalar product of vectors: "<< Operations::scalarProduct(AB, BC) << "\n";
+    std::cout << "Scalar product of vectors: "<< Operations::innerProduct(AB, BC) << "\n";
     std::cout << "Lenght a: "<< Operations::lenghtOfVector(AB) << "\n";
     std::cout << "Lenght b: "<< Operations::lenghtOfVector(BC) << "\n";
-    std::cout << "Cosinus a and b: "<<Operations::cosinus(AB, BC) << "\n";
-    std::cout << "Inner product: "<< Operations::innerProduct(AB, BC) << "\n";
     vect = Operations::vectorProduct(AB, BC);
     std::cout <<"x:" << vect.getX() << " y:" << vect.getY() << " z:" << vect.getZ() << "\n";
 
