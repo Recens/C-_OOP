@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
 
-class  soldier{
+class  Soldier{
 protected:
     std::string last_name;
     float height, weight;
 
 public:
-    soldier(){
+    Soldier(){
         std::string last_name="0";
         float height=0;
         float weight=0;
@@ -20,7 +20,7 @@ public:
         return weight;
     }
 
-    soldier(std::string last_name,float height,float weight){
+    Soldier(std::string last_name, float height, float weight){
         this-> last_name=last_name;
         this->height=height;
         this->weight=weight;
@@ -37,7 +37,7 @@ public:
 
     }
 };
-class educated_soldier : public soldier{
+class educated_soldier : public Soldier{
 private:
     int educ;
 public:
