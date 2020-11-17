@@ -36,7 +36,8 @@ public:
     }
 
     Array operator +(const Array &other) {
-        Array temp(other.size);
+        Array temp(this->size);
+        temp.showData();
         for (int i = 0; i < this->size; i++) {
             for (int j = 0; j < this->size; j++) {
                 temp.matrix[i][j] = this->matrix[i][j] + other.matrix[i][j];
@@ -48,7 +49,7 @@ public:
     }
 
     ~Array(){
-        std::cout<<"Destrucrot worked\n";
+        std::cout<<"Destructor the worked\n";
         for(int i=0;i<size;i++){
             delete matrix[i];
         }
