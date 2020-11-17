@@ -8,6 +8,7 @@ public:
 
     Array(){
         this->size = 1;
+        this->matrix=new int* [size];
     }
 
 
@@ -34,21 +35,18 @@ public:
 
     }
 
-    Array operator +(const Array &other){
-        Array temp;
-        if(this->size == other.size){
-            for (int i = 0; i < this->size; i++) {
-                for (int j = 0; j < this->size; j++) {
-                    temp.matrix[i][j] = this->matrix[i][j] + other.matrix[i][j];
-                }
+    Array operator +(const Array &other) {
+        Array temp(other.size);
+        for (int i = 0; i < this->size; i++) {
+            for (int j = 0; j < this->size; j++) {
+                temp.matrix[i][j] = this->matrix[i][j] + other.matrix[i][j];
             }
-            return temp;
         }
-        else{
-            temp.matrix[0][0] = 0;
-            return temp;
-        }
+        return temp;
+
+
     }
+
     ~Array(){
         std::cout<<"Destrucrot worked\n";
         for(int i=0;i<size;i++){
@@ -60,14 +58,10 @@ public:
 
 int main(){
     Array arr1(4);
-    Array arr2(2);
-    Array arr3(1);
+    Array arr2(4);
     arr1.showData();
     arr2.showData();
-    arr3.showData();
-    arr3=arr2=arr1;
-    arr1.showData();
-    arr2.showData();
+    Array arr3 = arr1+arr2;
     arr3.showData();
 
     return 0;
