@@ -86,6 +86,8 @@ int main()
     std::cout<<"Your weight: (kg)";std::cin>>weight;std::cout<<"\n";
     std::cout<<"Your educated (1,2,3)\n1 - higher;\n2- secondary;\n3 - elementary;\nYour option: ";std::cin>>educ;
     educated_soldier sol_1(name,height,weight,educ);
+    Soldier *sol = new educated_soldier("",1.98,79,2);
     sol_1.educdata();
+    sol->printdata();
     std::cout <<sol_1.educated();
 }

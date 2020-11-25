@@ -39,7 +39,7 @@ public:
     }
 
     static Point compositionObject(Point first, Point second) {
-        for (int i = 0; (i < first.getsize() and second.getsize());) {
+        for (int i = 0; i < first.getsize();) {
             return Point(first.getsize());
         }
     }
