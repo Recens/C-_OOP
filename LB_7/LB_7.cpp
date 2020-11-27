@@ -70,6 +70,8 @@ std::ostream &operator<<(std::ostream &out, const Soldier &other) {
 int main(){
     Soldier one(5);
     Soldier two(10);
+    Soldier two2(one);
+    std::cout<< two2<<"\n";
     std::cout << two.getSize() << "\n";
     two = one;
     std::cout << two.getSize() << "\n";

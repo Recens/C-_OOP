@@ -33,6 +33,7 @@ public:
         std::cout<<"Last name soldeir: "<<last_name<<"\n";
         std::cout<<"His height: "<<height<<" (m)"<<"\n";
         std::cout<<"His weight: "<<weight<<" (kg)"<<"\n";
+        std::cout<<"His Quality: "<<Qrep()<<"\n";
 
 
     }
@@ -71,7 +72,7 @@ public:
         std::cout<<"Last name soldeir: "<<last_name<<"\n";
         std::cout<<"His height: "<<height<<" (m)"<<"\n";
         std::cout<<"His weight: "<<weight<<" (kg)"<<"\n";
-        std::cout<<"His coefficient: ";
+        std::cout<<"His coefficient: "<<educated()<<"\n";
     }
 
 };
@@ -80,14 +81,18 @@ int main()
     std::string name;
     float height,weight;
     int educ;
+    /*
     std::cout<<"Enter your data:\n"<<"\n";
     std::cout<<"Your last name: "; std::cin>>name;std::cout<<"\n";
     std::cout<<"Your height (m) : "; std::cin>>height;std::cout<<"\n";
     std::cout<<"Your weight: (kg)";std::cin>>weight;std::cout<<"\n";
     std::cout<<"Your educated (1,2,3)\n1 - higher;\n2- secondary;\n3 - elementary;\nYour option: ";std::cin>>educ;
-    educated_soldier sol_1(name,height,weight,educ);
-    Soldier *sol = new educated_soldier("",1.98,79,2);
+     */
+    Soldier sol_0("Sati",1.90,98);
+    sol_0.printdata();
+    educated_soldier sol_1("Stiv",1.90,80,3);
+    Soldier *sol = new educated_soldier("Anton",1.98,79,2);
     sol_1.educdata();
     sol->printdata();
-    std::cout <<sol_1.educated();
+
 }
